@@ -1,7 +1,8 @@
 import '@mantine/core/styles.css';
 
+import type { Decorator } from '@storybook/react';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
-import { theme } from '../src/theme';
+import { theme } from '@/theme';
 
 export const parameters = {
   layout: 'fullscreen',
@@ -28,8 +29,8 @@ export const globalTypes = {
   },
 };
 
-export const decorators = [
-  (renderStory: any, context: any) => {
+export const decorators: Decorator[] = [
+  (renderStory, context) => {
     const scheme = (context.globals.theme || 'light') as 'light' | 'dark';
     return (
       <MantineProvider theme={theme} forceColorScheme={scheme}>
